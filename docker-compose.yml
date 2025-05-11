@@ -1,8 +1,6 @@
-version: "3.6"
-
 services:
   db:
-    image: supabase/postgres:15.1.0.88
+    image: supabase/postgres:15.1.0.98
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
@@ -41,7 +39,7 @@ services:
       - "3001:3000"
 
   auth:
-    image: supabase/gotrue:v2.128.0
+    image: supabase/gotrue:v2.142.0
     restart: always
     depends_on:
       - db
@@ -59,7 +57,7 @@ services:
       - "9999:9999"
 
   realtime:
-    image: supabase/realtime:v2.29.4
+    image: supabase/realtime:v2.32.8
     restart: always
     depends_on:
       - db
@@ -75,7 +73,7 @@ services:
       - "4000:4000"
 
   storage:
-    image: supabase/storage-api:v0.41.2
+    image: supabase/storage-api:v0.46.7
     restart: always
     depends_on:
       - db
